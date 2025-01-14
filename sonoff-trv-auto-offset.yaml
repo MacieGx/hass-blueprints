@@ -34,7 +34,7 @@ variables:
   trv_temp: "{{ state_attr(trv_entity, 'current_temperature') | round(1) }}"
   trv_offset: "{{ states(offset_entity)|float}}"
   friendly_name: "{{ state_attr(trv_entity, 'friendly_name')}}"
-  new_offset: "{{ sensor_temp - (trv_temp - trv_offset) | round(1) }}"
+  new_offset: "{{ sensor_temp - (trv_temp - trv_offset) | round(1) + 5 }}"
   
 trigger:
   - platform: state
