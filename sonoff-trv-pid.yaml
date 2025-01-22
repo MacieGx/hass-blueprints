@@ -28,8 +28,10 @@ variables:
   thermostat_value: !input 'thermostat_value'
   
 triggers: 
-  trigger: state
-  entity_id: !input 'thermostat_value'
+  - trigger: state
+    entity_id: !input 'thermostat_value'
+  - trigger: time_pattern
+    seconds: "59"
 
 actions:
   - action: number.set_value
